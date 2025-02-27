@@ -74,7 +74,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Tugas selesai!');
     }
 
-    public function detail(Task $task)
+    public function show(Task $task)
     {
 
         if ($task->user_id != Auth::id()) {
@@ -83,7 +83,7 @@ class TaskController extends Controller
 
         return view('tasks.detail', compact('task'));
     }
-    
+
 
 
 }
