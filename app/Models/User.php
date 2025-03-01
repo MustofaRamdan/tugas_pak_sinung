@@ -35,4 +35,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+    public function riwayats(): HasMany
+    {
+        return $this->hasMany(related: Riwayat::class);
+    }
 }

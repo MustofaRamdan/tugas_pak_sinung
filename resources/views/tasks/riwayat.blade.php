@@ -33,13 +33,13 @@
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Riwayat Tugas Selesai</h1>
     <div class="row">
-        @foreach($tugas as $task)
+        @foreach($task as $tasks)
         <div class="col-md-4 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body p-2">
-                    <h5 class="card-title">{{ $task->title }}</h5>
-                    <p class="text-muted"><small>Deadline: {{ $task->deadline }}</small></p>
-                    <span class="badge bg-success">Selesai</span>
+                    <h5 class="card-title">{{ $tasks->title }}</h5>
+                    <p class="text-muted"><small>Deadline: {{ $tasks->deadline }}</small></p>
+                    <span class="badge bg-success">Selesai: {{$tasks->selesai}}</span>
                 </div>
             </div>
         </div>

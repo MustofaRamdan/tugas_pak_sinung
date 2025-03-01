@@ -90,14 +90,10 @@
                                             <div class="d-flex gap-1">
                                                 <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-sm btn-info">Detail</a>
                                                 <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                                @if (!$task->status)
                                                     <form action="{{ route('tasks.complete', $task->id) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-success">Selesai</button>
                                                     </form>
-                                                @else
-                                                    <span class="badge bg-success align-self-center">Selesai</span>
-                                                @endif
                                                 <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')

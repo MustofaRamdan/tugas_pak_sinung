@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use GuzzleHttp\Promise\Create;
+use App\Models\Riwayat;
 use Illuminate\Http\Request;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
@@ -67,12 +68,23 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Tugas berhasil dihapus!');
     }
 
-    // Tandai tugas sebagai selesai
-    public function complete(Task $task)
+    public function complete($id)
     {
-        $task->update(['status' => true]);
+        $task = Task::findOrFail($id);
+
+        Riwayat::create([
+            'user_id'     => Auth::id(),
+            'title'       => $task->title,
+            'description' => $task->description,
+            'deadline'    => $task->deadline,
+            'selesai'     => now()->format('Y-m-d'),
+        ]);
+
+        $task->delete();
+
         return redirect()->route('tasks.index')->with('success', 'Tugas selesai!');
     }
+
 
     public function show(Task $task)
     {
