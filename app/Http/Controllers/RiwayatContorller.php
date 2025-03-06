@@ -6,7 +6,7 @@ use App\Models\Riwayat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RiwayatContorller extends Controller  
+class RiwayatContorller extends Controller
 {
     function riwayat(){
         $user = Auth::user()->id;

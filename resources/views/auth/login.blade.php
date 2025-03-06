@@ -23,6 +23,11 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
+        <a href="{{ route('google') }}" class="btn btn-light d-flex align-items-center mt-2">
+            <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="me-2" width="20">
+            Masuk dengan Google
+        </a>
+
 
         <!-- Remember Me -->
         <div class="block mt-4">

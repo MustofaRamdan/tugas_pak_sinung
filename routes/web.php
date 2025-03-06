@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatContorller;
+use App\Http\Controllers\SocialiteController;
 
+Route::get('/auth/google', [SocialiteController::class, 'redirectToProvider'])->name('google');
+Route::get('/auth/google/callback', [SocialiteController::class, 'handleProviderCallback']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
