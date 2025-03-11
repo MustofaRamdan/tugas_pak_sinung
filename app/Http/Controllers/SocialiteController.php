@@ -21,7 +21,7 @@ class SocialiteController extends Controller
         $user = User::where('email', $googleUser->email)->first();
 
         if (!$user) {
-            // Jika user belum ada, buat user baru
+
             $user = User::create([
                 'name' => $googleUser->name,
                 'email' => $googleUser->email,
@@ -29,7 +29,6 @@ class SocialiteController extends Controller
             ]);
         }
 
-        // Login user
         Auth::login($user, true);
 
         return redirect('/tasks');

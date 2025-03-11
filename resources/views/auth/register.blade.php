@@ -40,14 +40,27 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <p class="text-sm text-gray-600 dark:text-gray-400 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" >Sudah Punya Akun? </p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" >Already have an account?</p>
             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 ms-1" href="{{ route('login') }}">
                 {{ __(' Login') }}
             </a>
 
             <x-primary-button class="ms-4">
-                {{ __('Daftar') }}
+                {{ __('Register') }}
             </x-primary-button>
         </div>
+
+
+            <div class="flex items-center justify-center my-6">
+                <div class="w-full border-t border-gray-300"></div>
+                <span class="mx-4 text-gray-500">or</span>
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+
+
+        <a href="{{ route('google') }}" class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 mt-3">
+            <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="w-5 h-5 mr-2" />
+            Sign in with Google
+        </a>
     </form>
 </x-guest-layout>

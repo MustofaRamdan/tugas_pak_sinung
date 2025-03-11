@@ -25,7 +25,7 @@
         </div>
         <a href="{{ route('google') }}" class="btn btn-light d-flex align-items-center mt-2">
             <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="me-2" width="20">
-            Masuk dengan Google
+            Sign in with Google
         </a>
 
 
@@ -54,12 +54,12 @@
 
         <div class="mt-4 text-center justify-end flex">
             <p class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __('Belum Punya Akun?') }}
+                {{ __('Dont have an account yet?') }}
                 <a href="{{ route('register') }}"
                    class="underline text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100
                           rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
                           dark:focus:ring-offset-gray-800">
-                    {{ __('Daftar') }}
+                    {{ __('Register') }}
                 </a>
             </p>
         </div>

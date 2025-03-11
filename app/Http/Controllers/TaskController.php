@@ -6,7 +6,10 @@ use App\Models\Task;
 use App\Models\Riwayat;
 use Illuminate\Http\Request;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\TaskDeadlineNotification;
 
 class TaskController extends Controller
 {
@@ -17,13 +20,12 @@ class TaskController extends Controller
         return view('tasks.index', compact('tasks'));
     }
 
-    // Tampilkan form buat tugas
+
     public function create()
     {
         return view('tasks.create');
     }
 
-    // Simpan tugas baru
     public function store(Request $request)
     {
 
@@ -42,13 +44,13 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Tugas berhasil dibuat!');
     }
 
-    // Tampilkan form edit tugas
+
     public function edit(Task $task)
     {
         return view('tasks.edit', compact('task'));
     }
 
-    // Update tugas
+
     public function update(Request $request, Task $task)
     {
         $request->validate([
@@ -61,7 +63,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Tugas berhasil diperbarui!');
     }
 
-    // Hapus tugas
+
     public function destroy(Task $task)
     {
         $task->delete();
@@ -96,6 +98,23 @@ class TaskController extends Controller
         return view('tasks.detail', compact('task'));
     }
 
+    public function checkDeadlines()
+    {
+        $tasks = Task::whereDate('deadline', Carbon::today())->get();
+
+        foreach ($tasks as $task) {
+            if (!$task->notification_sent) {
+
+                $task->user->notify(new TaskDeadlineNotification($task));
+                $task->update(['notification_sent' => true]);
+
+
+                Log::info("Notifikasi dikirim ke: " . $task->user->email);
+            }
+        }
+
+        return response()->json(['message' => 'Deadline notifications sent successfully.']);
+    }
 
 
 }

@@ -16,7 +16,7 @@
                         {{ __('Tasks') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('tasks.riwayat')" :active="request()->routeIs('tasks.riwayat')">
-                        {{ __('Riwayat') }}
+                        {{ __('History') }}
                     </x-responsive-nav-link>
 
                 </div>

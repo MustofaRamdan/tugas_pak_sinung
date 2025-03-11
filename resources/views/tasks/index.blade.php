@@ -65,7 +65,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Daftar Tugas') }}
+            {{ __(' To-do List') }}
         </h2>
     </x-slot>
 
@@ -75,7 +75,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="container-fluid">
                         <div class="text-center mb-4">
-                            <a href="{{ route('tasks.create') }}" class="btn btn-primary">Buat Tugas Baru</a>
+                            <a href="{{ route('tasks.create') }}" class="btn btn-primary">Create a New Task</a>
                         </div>
 
                         <div class="row">
@@ -92,12 +92,12 @@
                                                 <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                                     <form action="{{ route('tasks.complete', $task->id) }}" method="POST" class="d-inline">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-sm btn-success">Selesai</button>
+                                                        <button type="submit" class="btn btn-sm btn-success">Finish</button>
                                                     </form>
                                                 <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus tugas ini?')">Hapus</button>
+                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
                                                 </form>
                                             </div>
                                         </div>
