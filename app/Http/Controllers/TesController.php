@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class TesController extends Controller
 {
     function tampil(){
-        return view('');
+        return view('dashboard');
     }
 }

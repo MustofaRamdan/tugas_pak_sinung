@@ -6,10 +6,12 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RiwayatContorller;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\TesController;
 
 Route::get('/auth/google', [SocialiteController::class, 'redirectToProvider'])->name('google');
 Route::get('/auth/google/callback', [SocialiteController::class, 'handleProviderCallback']);
 Route::get('/check-task-deadlines', [TaskController::class, 'checkDeadlines']);
+Route::get('/', [TesController::class, 'tampil']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -30,6 +30,13 @@
     }
 </style>
 
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __(' To-do List') }}
+        </h2>
+    </x-slot>
+
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Completed Task History</h1>
     <div class="row">
@@ -46,4 +53,5 @@
         @endforeach
     </div>
 </div>
+</x-app-layout> 
 @endsection
